@@ -6,33 +6,37 @@ export const initialState = {
   error: ''
 }
 
-export const reducer = (state = initialState, action) => {
+const reducer = (state = initialState, action) => {
   switch (action.type) {
+
     case(FETCH_START):
-    return({
-      ...state,
-      isLoading: true,
-      error: ''
-    });
+      return({
+        ...state,
+        isLoading: true,
+        error: ''
+      });
+    
     case(FETCH_SUCCESS):
       return({
         ...state,
         smurfs: action.payload,
         isLoading: false
       });
+
     case(FETCH_FAIL):
       return({
         ...state,
         error: action.payload,
         isLoading:false
       })
+
     default:
       return state;
   }
 }
 
 //**************DO NOT EDIT ANY CODE BEYOND THIS POINT**************//
-// export default reducer;
+export default reducer;
 
 //Task List:
 //1. Adds the following state values into the initialState:

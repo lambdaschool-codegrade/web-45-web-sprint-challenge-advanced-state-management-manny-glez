@@ -9,7 +9,7 @@ import thunk from "redux-thunk";
 import "./index.css";
 import App from "./App";
 
-import { reducer } from "./reducers/index.js";
+import reducer from "./reducers/index.js";
 
 const store = createStore(reducer, applyMiddleware(thunk, logger));
 
@@ -20,7 +20,7 @@ const rootElement = document.getElementById("root");
 
 ReactDOM.render(
     <Provider store={store}>
-    <App />
+        <App />
     </Provider>, 
     rootElement
 );

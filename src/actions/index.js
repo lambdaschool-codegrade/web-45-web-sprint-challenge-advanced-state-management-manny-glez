@@ -3,26 +3,29 @@ import Smurf from "../components/Smurf";
 
 export const fetchSmurfs = () => {
   return (dispatch) => {
+
     dispatch(fetchStart());
-    axios.get("http://localhost:3333/smurfs")
-    .then(res => {
-      console.log("res log:", res.data.data)
-      dispatch(fetchSuccess(res.data.data));
-    })
-    .catch(err => {
-      dispatch(fetchFail(err));
-    })
+
+    axios
+      .get("http://localhost:3333/smurfs")
+      .then(res => {
+        dispatch(fetchSuccess(res.data));
+        console.log(res)
+      })
+      .catch(err => {
+        dispatch(fetchFail(err));
+      })
   }
 }
 
 export const FETCH_START = "FETCH_START";
 export const fetchStart = () => {
-  return({type: FETCH_START});;
+  return({type: FETCH_START});
 }
 
 export const FETCH_SUCCESS = "FETCH_SUCCESS";
-export const fetchSuccess = (Smurf) => {
-  return({type: FETCH_SUCCESS, payload: Smurf});
+export const fetchSuccess = (smurfs) => {
+  return({type: FETCH_SUCCESS, payload: smurfs});
 }
 
 export const FETCH_FAIL = "FETCH_FAIL";

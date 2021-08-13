@@ -1,22 +1,27 @@
-import React, { Component } from "react";
+import React from "react";
 import { connect } from "react-redux"
-import { fetchSmurfs } from "./actions";
+import { fetchSmurfs } from "./actions/index.js";
 
 import AddForm from './components/AddForm';
 import SmurfList from './components/SmurfList';
 import Header from './components/Header';
 
-import axios from 'axios';
-
 import 'bootstrap/dist/css/bootstrap.min.css';
 import "./App.css";
+// import axios from "axios";
 
-class App extends Component {
+class App extends React.Component {
+
   componentDidMount() {
-    fetchSmurfs()
-    axios.get('http://localhost:3333/smurfs')
-    .then(res => console.log(res))
-    .catch(err => console.log('Axios Error', err));
+    this.props.fetchSmurfs()
+    // axios
+    // .get("http://localhost:3333/smurfs")
+    // .then(res => {
+    //   console.log("res log:", res)
+    // })
+    // .catch(err => {
+    //   console.log(err)
+    // })
   }
 
   render() {
