@@ -1,5 +1,4 @@
 import axios from 'axios';
-import Smurf from "../components/Smurf";
 
 export const fetchSmurfs = () => {
   return (dispatch) => {
@@ -36,6 +35,11 @@ export const fetchFail = (error) => {
 export const ADD_SMURF = "ADD_SMURF";
 export const addSmurf = (smurf) => {
   return({type: ADD_SMURF, payload: smurf})
+}
+
+export const SET_ERROR = "SET_ERROR";
+export const setError = (error) => {
+  return({type: SET_ERROR, payload: error })
 }
 
 //Task List:
