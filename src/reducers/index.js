@@ -1,4 +1,4 @@
-import {FETCH_START, FETCH_SUCCESS, FETCH_FAIL} from "../actions/index.js"
+import {FETCH_START, FETCH_SUCCESS, FETCH_FAIL, ADD_SMURF} from "../actions/index.js"
 
 export const initialState = {
   smurfs: [],
@@ -28,6 +28,11 @@ const reducer = (state = initialState, action) => {
         ...state,
         error: action.payload,
         isLoading:false
+      })
+    case(ADD_SMURF):
+      return({
+        ...state,
+        smurfs: [...state.smurfs, action.payload]
       })
 
     default:

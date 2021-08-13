@@ -18,7 +18,7 @@ import { fetchStart } from "../actions";
     return(
     <div className="listContainer">
         {smurfs.map(smurf => {
-            return(<Smurf smurf={smurf} />)
+            return(<Smurf key={smurf.id} smurf={smurf} />)
         })}
     </div>);
 }
